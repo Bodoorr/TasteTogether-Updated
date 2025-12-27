@@ -110,7 +110,7 @@ const Home = () => {
 
           <Center pb={4} mt={{ base: 0, md: 0, lg: 'auto' }}>
             <Image
-              src="../src/background/image.png"
+              src="./src/background/image.png"
               alt="TasteTogether"
               w={{ base: '380px', md: '600px', lg: '750px' }}
               maxW="100%"
