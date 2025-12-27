@@ -36,9 +36,9 @@ app.use('/recipe', RecipeRouter)
 app.use('/comments', commentRouter)
 app.use('/users', UserRouter)
 app.use('/room', RoomRouter)
-app.use('/', (req, res) => {
-  res.send(`Connected!`)
-})
+// app.use('/', (req, res) => {
+//   res.send(`Connected!`)
+// })
 
 const rooms = {}
 
