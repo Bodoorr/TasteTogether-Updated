@@ -1,7 +1,7 @@
-const User = require('./user')
-const Post = require('./post')
-const Comment = require('./comment')
-const Recipe = require('./recipe')
+const User = require('./User')
+const Post = require('./Post')
+const Comment = require('./Comment')
+const Recipe = require('./Recipe')
 
 module.exports = {
   User,

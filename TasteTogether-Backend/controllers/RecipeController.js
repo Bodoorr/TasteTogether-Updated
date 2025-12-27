@@ -1,5 +1,5 @@
 const axios = require('axios')
-const Recipe = require('../models/recipe')
+const Recipe = require('../models/Recipe')
 
 //to search meal by name :
 const searchRecipes = async (req, res) => {
