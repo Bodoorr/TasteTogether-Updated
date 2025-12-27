@@ -63,7 +63,7 @@ return (
               <Avatar.Image
                 src={
                   profile.image
-                    ? `http://localhost:3001/uploads/${profile.image}`
+                    ? `${BASE_URL}/uploads/${profile.image}`
                     : undefined
                 }
                 alt={profile.username}

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import Client from '../services/api'
+import { BASE_URL } from '../services/api'
 import {
   Box,
   HStack,
@@ -92,7 +93,7 @@ const Comment = ({ postId, setCommentCount, user }) => {
 
                 {text.user?.image && (
                   <Avatar.Image
-                    src={`http://localhost:3001/uploads/${text.user.image}`}
+                    src={`${BASE_URL}/uploads/${text.user.image}`}
                     style={{ borderRadius: '50%' }}
                   />
                 )}

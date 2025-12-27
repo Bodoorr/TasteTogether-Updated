@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
+import { BASE_URL } from '../services/api'
 import { io } from 'socket.io-client'
 import SimplePeer from 'simple-peer'
 import {
@@ -23,7 +24,7 @@ import {
   MonitorX
 } from 'lucide-react'
 
-const SERVER_URL = 'http://localhost:3001'
+const SERVER_URL = BASE_URL
 
 const getImageUrl = (image) => {
   if (!image) return null

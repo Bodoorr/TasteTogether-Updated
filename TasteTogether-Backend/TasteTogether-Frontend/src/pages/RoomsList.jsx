@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import Client from '../services/api'
+import { BASE_URL } from '../services/api'
 import {
   Box,
   Text,
@@ -177,7 +178,7 @@ const RoomsList = ({ user }) => {
                             <Avatar.Image
                               src={
                                 creatorImage
-                                  ? `http://localhost:3001/uploads/${creatorImage}`
+                                  ? `${BASE_URL}/uploads/${creatorImage}`
                                   : undefined
                               }
                             />

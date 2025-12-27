@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import Client from '../services/api'
+import { BASE_URL } from '../services/api'
 import { useNavigate, Link } from 'react-router-dom'
 import { FaRandom } from 'react-icons/fa'
 import {
@@ -184,7 +185,7 @@ const UserRecipe = ({ user, recipes, setRecipes }) => {
             >
               {recipe.recipeImage && (
                 <Image
-                  src={`http://localhost:3001/uploads/${recipe.recipeImage}`}
+                  src={`${BASE_URL}/uploads/${recipe.recipeImage}`}
                   alt={recipe.recipeName}
                   w="100%"
                   h="240px"
@@ -208,7 +209,7 @@ const UserRecipe = ({ user, recipes, setRecipes }) => {
                       </Avatar.Fallback>
                       {recipe.user?.image && (
                         <Avatar.Image
-                          src={`http://localhost:3001/uploads/${recipe.user.image}`}
+                          src={`${BASE_URL}/uploads/${recipe.user.image}`}
                           style={{ borderRadius: '50%' }}
                         />
                       )}

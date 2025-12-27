@@ -9,6 +9,7 @@ import {
 import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import Client from '../services/api'
+import { BASE_URL } from '../services/api'
 import Comment from './Comment'
 import {
   Box,
@@ -125,7 +126,7 @@ const Post = ({ post, user }) => {
 
             {post.user?.image && (
               <Avatar.Image
-                src={`http://localhost:3001/uploads/${post.user.image}`}
+                src={`${BASE_URL}/uploads/${post.user.image}`}
                 style={{ borderRadius: '50%' }}
               />
             )}
@@ -189,7 +190,7 @@ const Post = ({ post, user }) => {
 
         <Box position="relative" mb={3}>
           <Image
-            src={`http://localhost:3001/uploads/${post.postImage}`}
+            src={`${BASE_URL}/uploads/${post.postImage}`}
             alt="post"
             w="100%"
             borderRadius="md"

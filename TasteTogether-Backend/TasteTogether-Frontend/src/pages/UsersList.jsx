@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Client from '../services/api'
+import { BASE_URL } from '../services/api'
 import UsersSearchBar from '../components/UsersSearchBar'
 import {
   Avatar,
@@ -112,7 +113,7 @@ const UsersList = () => {
 
                     {u.image && (
                       <Avatar.Image
-                        src={`http://localhost:3001/uploads/${u.image}`}
+                        src={`${BASE_URL}/uploads/${u.image}`}
                         style={{ borderRadius: '50%' }}
                       />
                     )}

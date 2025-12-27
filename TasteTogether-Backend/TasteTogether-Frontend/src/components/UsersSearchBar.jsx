@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Client from '../services/api'
+import { BASE_URL } from '../services/api'
 import { Input, Box, Stack, HStack, Avatar, Text } from '@chakra-ui/react'
 
 const UsersSearchBar = () => {
@@ -88,7 +89,7 @@ const UsersSearchBar = () => {
 
                 {user.image && (
                   <Avatar.Image
-                    src={`http://localhost:3001/uploads/${user.image}`}
+                    src={`${BASE_URL}/uploads/${user.image}`}
                     style={{ borderRadius: '50%' }}
                   />
                 )}

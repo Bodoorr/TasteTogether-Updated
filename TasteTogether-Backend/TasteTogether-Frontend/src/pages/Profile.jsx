@@ -1,6 +1,7 @@
 import { useParams, Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import Client from '../services/api'
+import { BASE_URL } from '../services/api'
 import Comment from '../components/Comment'
 import {
   Box,
@@ -86,7 +87,7 @@ const Profile = ({ setCommentCount }) => {
 
                 {profileUser.image && (
                   <Avatar.Image
-                    src={`http://localhost:3001/uploads/${profileUser.image}`}
+                    src={`${BASE_URL}/uploads/${profileUser.image}`}
                     style={{ borderRadius: '50%' }}
                   />
                 )}
@@ -144,7 +145,7 @@ const Profile = ({ setCommentCount }) => {
                   onClick={() => setSelectedPost(post)}
                 >
                   <Image
-                    src={`http://localhost:3001/uploads/${post.postImage}`}
+                    src={`${BASE_URL}/uploads/${post.postImage}`}
                     alt="User post"
                     w="100%"
                     h="100%"
@@ -179,7 +180,7 @@ const Profile = ({ setCommentCount }) => {
                 <Stack direction={{ base: 'column', md: 'row' }} spacing={0}>
                   <Box bg="transparent" flex="1">
                     <Image
-                      src={`http://localhost:3001/uploads/${selectedPost.postImage}`}
+                      src={`${BASE_URL}/uploads/${selectedPost.postImage}`}
                       alt="Post preview"
                       w="100%"
                       h={{ base: '320px', md: '520px' }}
@@ -205,7 +206,7 @@ const Profile = ({ setCommentCount }) => {
 
                             {profileUser.image && (
                               <Avatar.Image
-                                src={`http://localhost:3001/uploads/${profileUser.image}`}
+                                src={`${BASE_URL}/uploads/${profileUser.image}`}
                                 style={{ borderRadius: '50%' }}
                               />
                             )}
