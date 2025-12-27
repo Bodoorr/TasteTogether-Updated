@@ -82,7 +82,8 @@ io.on('connection', (socket) => {
 
 // For frontend build
 const fs = require('fs')
-const frontendPath = path.join(__dirname, 'TasteTogether-Frontend/dist')
+const frontendPath = path.join(__dirname, '../TasteTogether-Frontend/dist')
+
 
 
 if (fs.existsSync(frontendPath)) {
