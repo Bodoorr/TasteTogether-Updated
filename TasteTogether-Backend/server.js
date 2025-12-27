@@ -97,6 +97,6 @@ if (fs.existsSync(frontendPath)) {
   console.log('Frontend build not found.')
 }
 
-server.listen(PORT, () => {
+server.listen(PORT, '0.0.0.0', () => {
   console.log(`Running Express server on Port ${PORT} . . .`)
 })
