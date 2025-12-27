@@ -9,7 +9,7 @@
 
 ## Project Links
 
-- **Previous Full-Stack Repository:** **[Taste Togetehr](https://github.com/Bodoorr)**  
+- **Previous Full-Stack Repository:** **[Taste Togetehr](https://github.com/ManarSwar97/TasteTogether-Frontend)**  
 - **Live Version:** **[Live](https://github.com/Bodoorr)**
 
 ---
