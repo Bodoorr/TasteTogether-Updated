@@ -86,7 +86,7 @@ const frontendPath = path.join(__dirname, 'TasteTogether-Frontend/dist')
 
 
 if (fs.existsSync(frontendPath)) {
-  console.log('Serving frontend from:', frontendPath)
+  console.log('frontend from:', frontendPath)
 
   app.use(express.static(frontendPath))
 
