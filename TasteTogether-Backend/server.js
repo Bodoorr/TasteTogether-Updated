@@ -80,6 +80,22 @@ io.on('connection', (socket) => {
   })
 })
 
+// For frontend build
+const fs = require('fs')
+const frontendPath = path.join(__dirname, '../TasteTogether-Frontend/dist')
+
+if (fs.existsSync(frontendPath)) {
+  console.log('Serving frontend from:', frontendPath)
+
+  app.use(express.static(frontendPath))
+
+  app.get(/^(?!\/(auth|posts|recipe|comments|users|room)).*$/, (req, res) => {
+    res.sendFile(path.join(frontendPath, 'index.html'))
+  })
+} else {
+  console.log('Frontend build not found.')
+}
+
 server.listen(PORT, () => {
   console.log(`Running Express server on Port ${PORT} . . .`)
 })
