@@ -8,7 +8,7 @@ import {
 } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-import axios from 'axios'
+import Client from '../services/api'
 import Comment from './Comment'
 import {
   Box,
@@ -38,8 +38,8 @@ const Post = ({ post, user }) => {
   useEffect(() => {
     const fetchCommentCount = async () => {
       try {
-        const response = await axios.get(
-          `http://localhost:3001/comments/${post._id}`,
+        const response = await Client.get(
+          `/comments/${post._id}`,
           {
             headers: { Authorization: `Bearer ${token}` }
           }
@@ -60,7 +60,7 @@ const Post = ({ post, user }) => {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`http://localhost:3001/posts/${post._id}`, {
+      await Client.delete(`/posts/${post._id}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -73,8 +73,8 @@ const Post = ({ post, user }) => {
 
   const handleLike = async () => {
     try {
-      const response = await axios.post(
-        `http://localhost:3001/posts/${post._id}/like`,
+      const response = await Client.post(
+        `/posts/${post._id}/like`,
         {},
         {
           headers: {

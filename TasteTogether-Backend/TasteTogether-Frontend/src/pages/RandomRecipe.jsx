@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import axios from 'axios'
+import Client from '../services/api'
 import { useNavigate } from 'react-router-dom'
 import { FaRandom, FaArrowLeft } from 'react-icons/fa'
 import {
@@ -32,7 +32,7 @@ const RandomRecipe = () => {
   const handleRandomRecipe = async () => {
     try {
       //axios call to get random recipe
-      const response = await axios.get('http://localhost:3001/recipe/random')
+      const response = await Client.get('/recipe/random')
       //check if the response.data.meals (array of recipes) exist then take it from the array otherwise set the random as null
       const random = response.data.meals ? response.data.meals[0] : null
       setRandomRecipe(random) //set the Random Recipe

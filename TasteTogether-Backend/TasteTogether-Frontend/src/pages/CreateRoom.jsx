@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import axios from 'axios'
+import Client from '../services/api'
 import { useNavigate } from 'react-router-dom'
 import {
   Box,
@@ -42,8 +42,8 @@ const CreateRoom = () => {
     setLoading(true)
     try {
       const token = localStorage.getItem('token')
-      const response = await axios.post(
-        'http://localhost:3001/room/create',
+      const response = await Client.post(
+        '/room/create',
         {
           roomName: roomState.roomName.trim(),
           description: roomState.description.trim()
@@ -102,7 +102,7 @@ const CreateRoom = () => {
                   id="roomName"
                   value={roomState.roomName}
                   onChange={handleChange}
-                  placeholder="e.g. Team Sync"
+                  placeholder="e.g. Friends Dinner "
                   borderRadius="xl"
                   bg="gray.50"
                   borderColor="gray.200"

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
-import axios from 'axios'
+import Client from '../services/api'
 import {
   Box,
   Text,
@@ -22,7 +22,7 @@ const RoomsList = ({ user }) => {
   useEffect(() => {
     const rooms = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/room')
+        const response = await Client.get('/room')
         setRooms(response.data.rooms || [])
       } catch (error) {
         console.error('Failed to fetch rooms:', error)
@@ -34,8 +34,8 @@ const RoomsList = ({ user }) => {
   const toggleRoomActive = async (roomId, currentStatus) => {
     try {
       const token = localStorage.getItem('token')
-      const response = await axios.put(
-        `http://localhost:3001/room/${roomId}/status`,
+      const response = await Client.put(
+        `/room/${roomId}/status`,
         { isActive: !currentStatus },
         { headers: { Authorization: `Bearer ${token}` } }
       )

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import axios from 'axios'
+import Client from '../services/api'
 import { useNavigate, useParams } from 'react-router-dom'
 import {
   Box,
@@ -22,7 +22,7 @@ const UpdatePost = ({ addPost }) => {
   useEffect(() => {
     const getPost = async () => {
       
-      const response = await axios.get(`http://localhost:3001/posts/${post_id}`)
+      const response = await Client.get(`/posts/${post_id}`)
       setPostState({
         postImage: '',
         postDescription: response.data.postDescription
@@ -49,8 +49,8 @@ const UpdatePost = ({ addPost }) => {
 
     const token = localStorage.getItem('token')
 
-    const response = await axios.put(
-      `http://localhost:3001/posts/${post_id}`,
+    const response = await Client.put(
+      `/posts/${post_id}`,
       formData,
       {
         headers: {

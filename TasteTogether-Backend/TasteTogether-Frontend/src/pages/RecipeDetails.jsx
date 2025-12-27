@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-import axios from 'axios'
+import Client from '../services/api'
 import { useNavigate } from 'react-router-dom'
 import { FaArrowLeft } from 'react-icons/fa'
 import {
@@ -27,7 +27,7 @@ const RecipeDetails = () => {
     const Recipe = async () => {
       try {
         //axios call to get the recipe by id
-        const response = await axios.get(`http://localhost:3001/recipe/${id}`)
+        const response = await Client.get(`/recipe/${id}`)
 
         //check if data exists and contain at least one meal
         if (response.data.meals && response.data.meals.length > 0) {

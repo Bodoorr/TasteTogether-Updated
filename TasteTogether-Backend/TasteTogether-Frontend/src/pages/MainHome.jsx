@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import Post from '../components/Post'
 import { useState, useEffect } from 'react'
-import axios from 'axios'
+import Client from '../services/api'
 import UsersSearchBar from '../components/UsersSearchBar'
 import { Box, HStack, IconButton, Stack } from '@chakra-ui/react'
 import RoomSidebar from '../components/RoomSidebar'
@@ -14,7 +14,7 @@ const MainHome = ({ user }) => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/posts')
+        const response = await Client.get('/posts')
         setNewPosts(response.data)
       } catch (error) {
         console.error('Error fetching posts:', error)

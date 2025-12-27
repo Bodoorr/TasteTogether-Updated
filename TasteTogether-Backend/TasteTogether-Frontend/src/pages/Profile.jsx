@@ -1,6 +1,6 @@
 import { useParams, Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-import axios from 'axios'
+import Client from '../services/api'
 import Comment from '../components/Comment'
 import {
   Box,
@@ -33,12 +33,12 @@ const Profile = ({ setCommentCount }) => {
     const UserAndPosts = async () => {
       try {
         // axios call to get the user
-        const userResponse = await axios.get(
-          `http://localhost:3001/users/${user_id}`
+        const userResponse = await Client.get(
+          `/users/${user_id}`
         )
         // axios call to get the user posts
-        const postsResponse = await axios.get(
-          `http://localhost:3001/posts?user=${user_id}`
+        const postsResponse = await Client.get(
+          `/posts?user=${user_id}`
         )
 
         setProfileUser(userResponse.data.user) // set the profile user
@@ -289,8 +289,8 @@ const Profile = ({ setCommentCount }) => {
                             onClick={async () => {
                               try {
                                 const token = localStorage.getItem('token')
-                                await axios.delete(
-                                  `http://localhost:3001/posts/${selectedPost._id}`,
+                                await Client.delete(
+                                  `/posts/${selectedPost._id}`,
                                   {
                                     headers: {
                                       Authorization: `Bearer ${token}`

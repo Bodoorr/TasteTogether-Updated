@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import axios from 'axios'
+import Client from '../services/api'
 import { useNavigate } from 'react-router-dom'
 import {
   Box,
@@ -61,8 +61,8 @@ const NewRecipe = ({ addRecipe }) => {
 
     const token = localStorage.getItem('token')
 
-    const response = await axios.post(
-      'http://localhost:3001/recipe/db',
+    const response = await Client.post(
+      '/recipe/db',
       formData,
       {
         headers: {

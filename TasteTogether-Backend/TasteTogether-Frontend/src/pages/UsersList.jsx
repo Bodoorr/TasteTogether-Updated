@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import axios from 'axios'
+import Client from '../services/api'
 import UsersSearchBar from '../components/UsersSearchBar'
 import {
   Avatar,
@@ -23,7 +23,7 @@ const UsersList = () => {
     const Users = async () => {
       try {
         setLoading(true)
-        const response = await axios.get('http://localhost:3001/users')
+        const response = await Client.get('/users')
         setUsers(response.data)
       } catch (error) {
         console.error('Error loading users', error)

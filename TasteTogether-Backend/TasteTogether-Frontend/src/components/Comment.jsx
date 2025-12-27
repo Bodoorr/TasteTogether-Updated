@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import axios from 'axios'
+import Client from '../services/api'
 import {
   Box,
   HStack,
@@ -18,8 +18,8 @@ const Comment = ({ postId, setCommentCount, user }) => {
     const fetchComments = async () => {
       try {
         const token = localStorage.getItem('token')
-        const response = await axios.get(
-          `http://localhost:3001/comments/${postId}`,
+        const response = await Client.get(
+          `/comments/${postId}`,
           {
             headers: {
               Authorization: `Bearer ${token}`
@@ -39,8 +39,8 @@ const Comment = ({ postId, setCommentCount, user }) => {
   const onClickHandler = async () => {
     try {
       const token = localStorage.getItem('token')
-      const response = await axios.post(
-        'http://localhost:3001/comments',
+      const response = await Client.post(
+        '/comments',
         {
           comment,
           postId

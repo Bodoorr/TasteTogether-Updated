@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import axios from 'axios'
+import Client from '../services/api'
 import { Input, Box, Stack, HStack, Avatar, Text } from '@chakra-ui/react'
 
 const UsersSearchBar = () => {
@@ -12,7 +12,7 @@ const UsersSearchBar = () => {
     const Users = async () => {
       try {
         //axios call to get all the users
-        const response = await axios.get('http://localhost:3001/users')
+        const response = await Client.get('/users')
         //set the users from the response
         setUsers(response.data)
         //to hide all the users

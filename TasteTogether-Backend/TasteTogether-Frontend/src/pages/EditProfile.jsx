@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import axios from 'axios'
+import Client from '../services/api'
 import {
   Box,
   HStack,
@@ -31,8 +31,8 @@ const EditProfile = () => {
     const User = async () => {
       try {
         // axios call to get the user data using user id
-        const response = await axios.get(
-          `http://localhost:3001/users/${user_id}`
+        const response = await Client.get(
+          `/users/${user_id}`
         )
         // save the response in "user"
         const user = response.data.user
@@ -79,7 +79,7 @@ const EditProfile = () => {
 
     try {
       // axios call to update the user profile
-      await axios.put(`http://localhost:3001/users/${user_id}`, formData, {
+      await Client.put(`/users/${user_id}`, formData, {
         headers: {
           Authorization: `Bearer ${token}`
         }

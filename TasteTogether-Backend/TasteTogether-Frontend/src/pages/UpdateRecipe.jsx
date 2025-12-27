@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import axios from 'axios'
+import Client from '../services/api'
 import { useNavigate, useParams } from 'react-router-dom'
 import {
   Box,
@@ -51,8 +51,8 @@ const UpdateRecipe = ({ addRecipe }) => {
     const Recipe = async () => {
       try {
         //axios call to get the recipe in the database by id
-        const response = await axios.get(
-          `http://localhost:3001/recipe/db/${recipe_id}`
+        const response = await Client.get(
+          `/recipe/db/${recipe_id}`
         )
         const recipe = response.data //return the full recipe
 
@@ -110,8 +110,8 @@ const UpdateRecipe = ({ addRecipe }) => {
 
     try {
       //axios call to PUT the new updated recipe fields by id
-      const response = await axios.put(
-        `http://localhost:3001/recipe/db/${recipe_id}`,
+      const response = await Client.put(
+        `/recipe/db/${recipe_id}`,
         formData,
         {
           headers: {

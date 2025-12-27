@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import axios from 'axios'
+import Client from '../services/api'
 import RecipeSearchBar from './RecipeSearchBar'
 import { Link } from 'react-router-dom'
 import { FaRandom } from 'react-icons/fa'
@@ -26,7 +26,7 @@ const RecipeListAPI = () => {
   //to get the recipes from the api
   const Recipes = async () => {
     try {
-      const response = await axios.get('http://localhost:3001/recipe')
+      const response = await Client.get('/recipe')
       setRecipes(response.data)
     } catch (error) {
       setError('Failed to fetch recipes')
@@ -42,8 +42,8 @@ const RecipeListAPI = () => {
 
     //the result of the search bar
     try {
-      const response = await axios.get(
-        `http://localhost:3001/recipe/search/${search}`
+      const response = await Client.get(
+        `/recipe/search/${search}`
       )
       if (response.data.meals) {
         setRecipes(response.data.meals)

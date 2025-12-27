@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import axios from 'axios'
+import Client from '../services/api'
 import { useNavigate, Link } from 'react-router-dom'
 import { FaRandom } from 'react-icons/fa'
 import {
@@ -25,7 +25,7 @@ const UserRecipe = ({ user, recipes, setRecipes }) => {
   // to fetch recipes from backend with auth token
   const Recipes = async () => {
     try {
-      const response = await axios.get('http://localhost:3001/recipe/db', {
+      const response = await Client.get('/recipe/db', {
         headers: { Authorization: `Bearer ${token}` }
       })
       setRecipes(response.data || []) //set recipes to response data or empty array if theres no data
@@ -53,7 +53,7 @@ const UserRecipe = ({ user, recipes, setRecipes }) => {
   // delete a recipe by id, then update recipes state to remove it
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:3001/recipe/db/${id}`, {
+      await Client.delete(`/recipe/db/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       })
       setRecipes(recipes.filter((recipe) => recipe._id !== id)) //remove the recipe with the matching id from the list

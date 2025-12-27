@@ -1,4 +1,4 @@
-import axios from 'axios'
+import Client from '../services/api'
 import { useState, useEffect } from 'react'
 import confetti from 'canvas-confetti'
 import { FaRandom } from 'react-icons/fa'
@@ -17,7 +17,7 @@ const RandomProfile = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/users')
+        const response = await Client.get('/users')
         setUsers(response.data)
       } catch (err) {
         console.error('Failed to fetch users')

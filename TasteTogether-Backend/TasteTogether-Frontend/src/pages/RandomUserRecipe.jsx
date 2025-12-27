@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import axios from 'axios'
+import Client from '../services/api'
 import { useNavigate } from 'react-router-dom'
 import { FaRandom, FaArrowLeft } from 'react-icons/fa'
 import {
@@ -27,7 +27,7 @@ const RandomUserRecipe = () => {
   useEffect(() => {
     const Recipes = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/recipe/db', {
+        const response = await Client.get('/recipe/db', {
           headers: {
             Authorization: `Bearer ${token}`
           }

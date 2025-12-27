@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import axios from 'axios'
+import Client from '../services/api'
 import {
   Box,
   Text,
@@ -21,7 +21,7 @@ const RoomSidebar = ({ user }) => {
   useEffect(() => {
     const activeRooms = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/room')
+        const response = await Client.get('/room')
         const rooms = response.data.rooms || []
         const filteredRooms = rooms.filter((room) => room.isActive)
         setActiveRooms(filteredRooms)
