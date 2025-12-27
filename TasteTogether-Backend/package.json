@@ -7,8 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "dev": "node --watch server.js",
-      "build:frontend": "cd ../TasteTogether-Frontend && npm install && npm run build",
-  "heroku-postbuild": "npm run build:frontend"
+    "build:frontend": "cd ../TasteTogether-Frontend && npm install && npm run build",
+    "postinstall": "npm run build:frontend"
   },
   "repository": {
     "type": "git",
