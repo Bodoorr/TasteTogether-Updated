@@ -40,12 +40,12 @@ const CreatePost = async (req, res) => {
     console.log('FILE BACKEND:', req.file)
 
     const post = await Post.create(postData)
-    console.log('FILE BACKEND:', req.file)
     res.status(201).json(post)
-    console.log('FILE BACKEND:', req.file)
   } catch (error) {
     throw error
   }
+
+  
 }
 const UpdatePost = async (req, res) => {
   try {
