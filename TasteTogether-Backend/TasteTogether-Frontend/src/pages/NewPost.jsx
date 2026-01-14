@@ -39,7 +39,6 @@ const NewPost = ({ addPost }) => {
 
     const response = await Client.post('/posts', formData, {
       headers: {
-        'Content-Type': 'multipart/form-data',
         Authorization: `Bearer ${token}`
       }
     })
