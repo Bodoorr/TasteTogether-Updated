@@ -116,7 +116,7 @@ const RandomUserRecipe = () => {
         >
           {randomRecipe.recipeImage && (
             <Image
-              src={`${BASE_URL}/uploads/${randomRecipe.recipeImage}`}
+              src={randomRecipe.recipeImage}
               alt={randomRecipe.recipeName}
               w="100%"
               h="260px"
@@ -142,7 +142,7 @@ const RandomUserRecipe = () => {
 
                     {randomRecipe.user?.image && (
                       <Avatar.Image
-                        src={`${BASE_URL}/uploads/${randomRecipe.user.image}`}
+                        src={randomRecipe.user.image}
                         style={{ borderRadius: '50%' }}
                       />
                     )}

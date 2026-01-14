@@ -126,7 +126,7 @@ const Post = ({ post, user }) => {
 
             {post.user?.image && (
               <Avatar.Image
-                src={`${BASE_URL}/uploads/${post.user.image}`}
+                src={`${post.user.image}`}
                 style={{ borderRadius: '50%' }}
               />
             )}
@@ -190,7 +190,7 @@ const Post = ({ post, user }) => {
 
         <Box position="relative" mb={3}>
           <Image
-            src={`${BASE_URL}/uploads/${post.postImage}`}
+            src={post.postImage}
             alt="post"
             w="100%"
             borderRadius="md"

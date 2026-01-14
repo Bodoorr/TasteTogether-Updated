@@ -69,7 +69,7 @@ const Sidebar = ({ handleLogOut, user }) => {
             {user.username?.[0]?.toUpperCase() || 'U'}
           </Avatar.Fallback>
           {user.image && (
-            <Avatar.Image src={`${BASE_URL}/uploads/${user.image}`} />
+            <Avatar.Image src={user.image} />
           )}
         </Avatar.Root>
       </Box>

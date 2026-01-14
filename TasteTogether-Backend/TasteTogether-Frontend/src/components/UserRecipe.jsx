@@ -185,7 +185,7 @@ const UserRecipe = ({ user, recipes, setRecipes }) => {
             >
               {recipe.recipeImage && (
                 <Image
-                  src={`${BASE_URL}/uploads/${recipe.recipeImage}`}
+                  src={recipe.recipeImage}
                   alt={recipe.recipeName}
                   w="100%"
                   h="240px"
@@ -209,7 +209,7 @@ const UserRecipe = ({ user, recipes, setRecipes }) => {
                       </Avatar.Fallback>
                       {recipe.user?.image && (
                         <Avatar.Image
-                          src={`${BASE_URL}/uploads/${recipe.user.image}`}
+                          src={recipe.user.image}
                           style={{ borderRadius: '50%' }}
                         />
                       )}

@@ -27,7 +27,7 @@ const Register = async (req, res) => {
 
     let passwordDigest = await middleware.hashPassword(password)
 
-    let image = req.file ? req.file.filename : null
+    let image = req.file ? req.file.path : null
 
     const user = await User.create({
       passwordDigest,

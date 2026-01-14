@@ -1,7 +1,7 @@
 const router = require('express').Router()
 const controller = require('../controllers/UserController')
 const middleware = require('../middleware')
-const upload = require('../middleware/multer')
+const upload = require('../middleware/upload')
 
 // get all users
 router.get('/', controller.GetAllUsers)

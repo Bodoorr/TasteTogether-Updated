@@ -113,7 +113,7 @@ const UsersList = () => {
 
                     {u.image && (
                       <Avatar.Image
-                        src={`${BASE_URL}/uploads/${u.image}`}
+                        src={u.image}
                         style={{ borderRadius: '50%' }}
                       />
                     )}

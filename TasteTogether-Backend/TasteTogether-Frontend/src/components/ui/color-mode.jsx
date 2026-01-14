@@ -8,9 +8,15 @@ import { LuMoon, LuSun } from 'react-icons/lu'
 
 export function ColorModeProvider(props) {
   return (
-    <ThemeProvider attribute='class' disableTransitionOnChange {...props} />
+    <ThemeProvider
+      attribute="class"
+      forcedTheme="light"
+      disableTransitionOnChange
+      {...props}
+    />
   )
 }
+
 
 export function useColorMode() {
   const { resolvedTheme, setTheme, forcedTheme } = useTheme()

@@ -93,7 +93,7 @@ const Comment = ({ postId, setCommentCount, user }) => {
 
                 {text.user?.image && (
                   <Avatar.Image
-                    src={`${BASE_URL}/uploads/${text.user.image}`}
+                    src={text.user.image}
                     style={{ borderRadius: '50%' }}
                   />
                 )}

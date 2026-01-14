@@ -89,7 +89,7 @@ const UsersSearchBar = () => {
 
                 {user.image && (
                   <Avatar.Image
-                    src={`${BASE_URL}/uploads/${user.image}`}
+                    src={user.image}
                     style={{ borderRadius: '50%' }}
                   />
                 )}

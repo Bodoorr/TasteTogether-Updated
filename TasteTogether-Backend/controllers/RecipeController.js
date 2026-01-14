@@ -80,7 +80,7 @@ const createRecipe = async (req, res) => {
 
       recipeName: req.body.recipeName,
 
-      recipeImage: req.file.filename,
+      recipeImage: req.file.path,
 
       recipeDescription: req.body.recipeDescription,
 
@@ -140,7 +140,7 @@ const updateRecipe = async (req, res) => {
     }
     // Check if a new image was uploaded
     if (req.file) {
-      updateData.recipeImage = req.file.filename
+      updateData.recipeImage = req.file.path
     }
     //to update the recipe and save it in the database
     const updatedRecipe = await Recipe.findByIdAndUpdate(recipeId, updateData, {

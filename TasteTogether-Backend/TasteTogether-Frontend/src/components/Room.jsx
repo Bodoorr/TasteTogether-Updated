@@ -29,7 +29,7 @@ const SERVER_URL = BASE_URL
 const getImageUrl = (image) => {
   if (!image) return null
   if (image.startsWith('http') || image.startsWith('data:')) return image
-  return `${SERVER_URL}/uploads/${image}`
+  return `${image}`
 }
 
 const Room = ({ user }) => {

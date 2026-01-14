@@ -1,4 +1,5 @@
 const { Post } = require('../models')
+
 // const GetPosts = async (req, res) => {
 //   try {
 //     const posts = await Post.find({}) //get all the post without filter
@@ -33,11 +34,15 @@ const CreatePost = async (req, res) => {
     const userId = res.locals.payload.id || res.locals.payload._id
     const postData = {
       user: userId,
-      postImage: req.file.filename,
+      postImage: req.file.path,
       postDescription: req.body.postDescription
     }
+    console.log('FILE BACKEND:', req.file)
+
     const post = await Post.create(postData)
+    console.log('FILE BACKEND:', req.file)
     res.status(201).json(post)
+    console.log('FILE BACKEND:', req.file)
   } catch (error) {
     throw error
   }
@@ -49,7 +54,7 @@ const UpdatePost = async (req, res) => {
     }
 
     if (req.file) {
-      updateFields.postImage = req.file.filename
+      updateFields.postImage = req.file.path
     }
 
     const updatedPost = await Post.findByIdAndUpdate(
@@ -59,6 +64,7 @@ const UpdatePost = async (req, res) => {
         new: true
       }
     )
+    console.log('FILE:', req.file)
     res.status(200).send(updatedPost)
   } catch (error) {
     throw error

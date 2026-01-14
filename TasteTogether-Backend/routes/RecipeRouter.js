@@ -2,7 +2,7 @@ const recipeController = require('../controllers/RecipeController')
 const middleware = require('../middleware')
 const express = require('express')
 const router = express.Router()
-const upload = require('../middleware/multer')
+const upload = require('../middleware/upload')
 
 // CRUD
 router.post(

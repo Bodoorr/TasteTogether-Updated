@@ -178,7 +178,7 @@ const RoomsList = ({ user }) => {
                             <Avatar.Image
                               src={
                                 creatorImage
-                                  ? `${BASE_URL}/uploads/${creatorImage}`
+                                  ? creatorImage
                                   : undefined
                               }
                             />

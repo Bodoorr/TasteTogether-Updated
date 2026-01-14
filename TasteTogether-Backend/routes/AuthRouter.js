@@ -1,7 +1,7 @@
 const router = require('express').Router()
 const controller = require('../controllers/AuthController')
 const middleware = require('../middleware')
-const upload = require('../middleware/multer')
+const upload = require('../middleware/upload')
 
 router.post('/login', controller.Login)
 router.post('/register', upload.single('profileImage'), controller.Register)

@@ -41,7 +41,7 @@ const UpdateUserProfile = async (req, res) => {
     const { firstName, lastName, email, typeOfFood } = req.body
 
     // handle image upload if provided
-    let image = req.file ? req.file.filename : undefined
+    let image = req.file ? req.file.path : undefined
 
     //updated fields
     const updateFields = {

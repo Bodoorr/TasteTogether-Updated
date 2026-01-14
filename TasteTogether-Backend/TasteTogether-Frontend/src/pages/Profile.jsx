@@ -34,13 +34,9 @@ const Profile = ({ setCommentCount }) => {
     const UserAndPosts = async () => {
       try {
         // axios call to get the user
-        const userResponse = await Client.get(
-          `/users/${user_id}`
-        )
+        const userResponse = await Client.get(`/users/${user_id}`)
         // axios call to get the user posts
-        const postsResponse = await Client.get(
-          `/posts?user=${user_id}`
-        )
+        const postsResponse = await Client.get(`/posts?user=${user_id}`)
 
         setProfileUser(userResponse.data.user) // set the profile user
         setUserPosts(postsResponse.data) // set `the` user posts
@@ -87,7 +83,7 @@ const Profile = ({ setCommentCount }) => {
 
                 {profileUser.image && (
                   <Avatar.Image
-                    src={`${BASE_URL}/uploads/${profileUser.image}`}
+                    src={profileUser.image}
                     style={{ borderRadius: '50%' }}
                   />
                 )}
@@ -145,7 +141,7 @@ const Profile = ({ setCommentCount }) => {
                   onClick={() => setSelectedPost(post)}
                 >
                   <Image
-                    src={`${BASE_URL}/uploads/${post.postImage}`}
+                    src={post.postImage}
                     alt="User post"
                     w="100%"
                     h="100%"
@@ -180,7 +176,7 @@ const Profile = ({ setCommentCount }) => {
                 <Stack direction={{ base: 'column', md: 'row' }} spacing={0}>
                   <Box bg="transparent" flex="1">
                     <Image
-                      src={`${BASE_URL}/uploads/${selectedPost.postImage}`}
+                      src={selectedPost.postImage}
                       alt="Post preview"
                       w="100%"
                       h={{ base: '320px', md: '520px' }}
@@ -206,7 +202,7 @@ const Profile = ({ setCommentCount }) => {
 
                             {profileUser.image && (
                               <Avatar.Image
-                                src={`${BASE_URL}/uploads/${profileUser.image}`}
+                                src={profileUser.image}
                                 style={{ borderRadius: '50%' }}
                               />
                             )}

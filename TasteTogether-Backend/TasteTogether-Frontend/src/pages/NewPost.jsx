@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import Client from '../services/api'
 import { useNavigate } from 'react-router-dom'
 import {
@@ -21,6 +21,7 @@ const NewPost = ({ addPost }) => {
   const [postState, setPostState] = useState(initialState)
   const handleChange = (event) => {
     const { id, value, files } = event.target
+    console.log('FILES:', files)
     setPostState({
       ...postState,
       [id]: files ? files[0] : value
@@ -48,6 +49,13 @@ const NewPost = ({ addPost }) => {
     setPostState(initialState)
     navigate('/main')
   }
+
+  const fileInputRef = useRef(null)
+
+  const handleFileClick = () => {
+    fileInputRef.current.click()
+  }
+
   return (
     <Center minH="100vh" px={4}>
       <Box
@@ -88,6 +96,7 @@ const NewPost = ({ addPost }) => {
                     borderRadius="full"
                     cursor="pointer"
                     _hover={{ bg: 'gray.50' }}
+                    onClick={handleFileClick}
                   >
                     Choose Image
                   </Button>
@@ -98,6 +107,7 @@ const NewPost = ({ addPost }) => {
                 </HStack>
 
                 <Input
+                  ref={fileInputRef}
                   id="postImage"
                   type="file"
                   accept="image/*"
