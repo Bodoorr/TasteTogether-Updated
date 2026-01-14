@@ -11,8 +11,7 @@ import {
   Center
 } from '@chakra-ui/react'
 const NewPost = ({ addPost }) => {
-  const [loading, setLoading] = useState(false)
-
+    const [loading, setLoading] = useState(false)
   let navigate = useNavigate()
   const initialState = {
     postImage: '',
@@ -21,7 +20,6 @@ const NewPost = ({ addPost }) => {
   const [postState, setPostState] = useState(initialState)
   const handleChange = (event) => {
     const { id, value, files } = event.target
-    console.log('FILES:', files)
     setPostState({
       ...postState,
       [id]: files ? files[0] : value
@@ -30,7 +28,6 @@ const NewPost = ({ addPost }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    setLoading(true)
     const formData = new FormData()
     formData.append('postImage', postState.postImage)
     formData.append('postDescription', postState.postDescription)
@@ -39,20 +36,14 @@ const NewPost = ({ addPost }) => {
 
     const response = await Client.post('/posts', formData, {
       headers: {
+        'Content-Type': 'multipart/form-data',
         Authorization: `Bearer ${token}`
       }
     })
     const newPost = response.data
     addPost(newPost)
-    setLoading(false)
     setPostState(initialState)
     navigate('/main')
-  }
-
-  const fileInputRef = useRef(null)
-
-  const handleFileClick = () => {
-    fileInputRef.current.click()
   }
 
   return (
@@ -95,7 +86,6 @@ const NewPost = ({ addPost }) => {
                     borderRadius="full"
                     cursor="pointer"
                     _hover={{ bg: 'gray.50' }}
-                    onClick={handleFileClick}
                   >
                     Choose Image
                   </Button>
@@ -106,7 +96,6 @@ const NewPost = ({ addPost }) => {
                 </HStack>
 
                 <Input
-                  ref={fileInputRef}
                   id="postImage"
                   type="file"
                   accept="image/*"
